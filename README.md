@@ -8,6 +8,11 @@ This is the official implementation of the paper "[Spatial–Temporal Synchronou
 * See requirements.txt (All of them are not required)
 
 ## Get Started
+The following steps are required to replicate our work:
+
+1. Download datasets
+* JHU Dataset - Download [JHU COVID time-series data](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series) and save in 
+
 1. Convert multiple datasets to a `magnet.data.TargetDataset` and use `magnet.data.TargetedDataLoader` to load the data
 ```
 import ...
