@@ -1,2 +1,2 @@
-# STSGT
-Spatial-Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting
+# Spatial-Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting
+
