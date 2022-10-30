@@ -1,6 +1,6 @@
 # Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting
 
-This is the official implementation of the paper "[Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting](https://www.sciencedirect.com/science/article/pii/S2352648322000824)" that is published in Smart Health Journal
+This is the official implementation of the paper "[Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting](https://www.sciencedirect.com/science/article/pii/S2352648322000824)" that was presented at IEEE/ACM CHASE 2022 conference and is published in Elsevier Smart Health Journal (2022).
 
 ## Requirements
 * Python >= 3.6
@@ -17,9 +17,13 @@ The following steps are required to replicate our work:
 2. Generate Feature Matrix (X) and Adjacency Matrix (W) from downloaded datasets.
 * JHU Dataset (US) - Inside the folder `data/COVID_JHU`, run the file `Generate_51_states_X_W.ipynb` to generate X and W matrix for 50 states of US and Washington D.C. (51 nodes of graph).
 * JHU Dataset (Michigan) - Inside the folder `data/COVID_JHU`, run the file `Generate_51_states_X_W_Michigan.ipynb` to generate X and W matrix for 83 counties of the state of Michigan (83 nodes of graph).
-* NYT Dataset (US) - Inside the folder `data/COVID_NYT`, run the file `Generate_51_states_X_W_NYT.ipynb` to generate X and W matrix for 50 states of US and Washington D.C. (51 nodes of graph).
+* NYT Dataset (US) - Inside the folder `data/COVID_NYT`, run the file `Generate_51_states_X_W_NYT.ipynb` to generate X matrix for 50 states of US and Washington D.C. (51 nodes of graph). We used the same adjacency matrix (W) as generated using JHU dataset.
 
 3. Generate Train, Validation and Test datasets from the generated X and W matrices.
+Run the file `generate_training_data.py` to generate the processed files `train.npz, val.npz, test.npz` from the X and W matrices and save the processed files in `data/COVID_JHU/processed` or `data/COVID_NYT/processed`.
+```
+python generate_training_data.py 
+```
 
 1. Convert multiple datasets to a `magnet.data.TargetDataset` and use `magnet.data.TargetedDataLoader` to load the data
 ```
