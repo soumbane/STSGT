@@ -56,6 +56,9 @@ python test.py --checkpoint "checkpoints/pretrained_models/JHU_States_Infected/S
 python test.py --checkpoint "checkpoints/pretrained_models/NYT_States_Deaths/STST/exp_1_19.06_best_model.pth"
 ```
 
+## Notes
+* Please choose the correct configuration file with the `DATASET` variable in both `train.py` and `test.py`.
+
 ## Cite
 Please cite our paper if you find this work useful for your research:
 ```
