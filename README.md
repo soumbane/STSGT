@@ -19,30 +19,23 @@ The following steps are required to replicate our work:
 * JHU Dataset (Michigan) - Inside the folder `data/COVID_JHU`, run the file `Generate_51_states_X_W_Michigan.ipynb` to generate X and W matrix for 83 counties of the state of Michigan (83 nodes of graph).
 * NYT Dataset (US) - Inside the folder `data/COVID_NYT`, run the file `Generate_51_states_X_W_NYT.ipynb` to generate X matrix for 50 states of US and Washington D.C. (51 nodes of graph). We used the same adjacency matrix (W) as generated using JHU dataset.
 
-3. Generate Train, Validation and Test datasets from the generated X and W matrices.
-Run the file `generate_training_data.py` to generate the processed files `train.npz, val.npz, test.npz` from the X and W matrices and save the processed files in `data/COVID_JHU/processed` or `data/COVID_NYT/processed`.
+3. Generate Train, Validation and Test datasets from the generated X matrix.
+* We divided the entire dataset in chronological order with 80% training, 10% validation and 10% testing.
+* Run the file `generate_training_data.py` to generate the processed files `train.npz, val.npz, test.npz` from X matrix and save the processed files in `data/COVID_JHU/processed` or `data/COVID_NYT/processed`. Use the `confirmed` or `deaths` in the argument to generate infected and death cases processed files.
 ```
-python generate_training_data.py 
+python generate_training_data.py --traffic_df_filename "data/COVID_JHU/covid19_deaths_US_51_states_X_matrix_final.csv" 
 ```
 
-1. Convert multiple datasets to a `magnet.data.TargetDataset` and use `magnet.data.TargetedDataLoader` to load the data
-```
-import ...
-import magnet
+## Training
 
-# load data
-train_dataset_1, val_dataset_1 = ...
-train_dataset_2, val_dataset_2 = ...
-...
-target_dict = {0: "m1", 1: "m2", ...}
-training_dataset = magnet.data.TargetedDataset(train_dataset_1, train_dataset_2, target_dict=target_dict)
-training_dataset = magnet.data.TargetedDataLoader(training_dataset, batch_size=batch_size, shuffle=True, num_workers=1, pin_memory=True)
-validation_dataset = {
-    "m1": data.DataLoader(val_dataset_1, batch_size=batch_size, shuffle=False),
-    "m2": data.DataLoader(val_dataset_2, batch_size=batch_size, shuffle=False),
-	...
-}
-```
+1. Define paths and hyper-parameters in configuration files.
+* Refer to the files `COVID_JHU.conf` and `COVID_NYT.conf` for the data paths and hyper-parameters used for training and testing. 
+* The `sensors_distance` in the config files indicate the path to the adjacency matrix W.
+
+2. Train the model
+
+
+
 ## Cite
 Please cite our paper if you find this work useful for your research:
 ```
