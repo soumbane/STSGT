@@ -1,6 +1,6 @@
 # Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting
 
-This is the official implementation of the paper "[Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting](https://www.sciencedirect.com/science/article/pii/S2352648322000824)" that was presented at IEEE/ACM CHASE 2022 conference and is published in Elsevier Smart Health Journal (2022).
+This is the official implementation of the paper "[Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting](https://www.sciencedirect.com/science/article/pii/S2352648322000824)" that was presented at IEEE/ACM CHASE 2022 conference and published in Elsevier Smart Health Journal (2022).
 
 ## Requirements
 * Python >= 3.6
@@ -21,7 +21,7 @@ The following steps are required to replicate our work:
 
 3. Generate Train, Validation and Test datasets from the generated X matrix.
 * We divided the entire dataset in chronological order with 80% training, 10% validation and 10% testing.
-* Run the file `generate_training_data.py` to generate the processed files `train.npz, val.npz, test.npz` from X matrix and save the processed files in `data/COVID_JHU/processed` or `data/COVID_NYT/processed`. Use the `confirmed` or `deaths` in the argument to generate infected and death cases processed files.
+* Run the file `generate_training_data.py` to generate the processed files `train.npz, val.npz, test.npz` from X matrix and save the processed files in `data/COVID_JHU/processed` or `data/COVID_NYT/processed`. Use the `confirmed` or `deaths` in the argument to generate infected and death cases processed files respectively.
 ```
 python generate_training_data.py --traffic_df_filename "data/COVID_JHU/covid19_deaths_US_51_states_X_matrix_final.csv" 
 ```
@@ -29,12 +29,24 @@ python generate_training_data.py --traffic_df_filename "data/COVID_JHU/covid19_d
 ## Training
 
 1. Define paths and hyper-parameters in configuration files.
-* Refer to the files `COVID_JHU.conf` and `COVID_NYT.conf` for the data paths and hyper-parameters used for training and testing. 
+* Refer to the files `config/COVID_JHU.conf` and `config/COVID_NYT.conf` for the data paths, hyper-parameters and model configurations used for training and testing. 
 * The `sensors_distance` in the config files indicate the path to the adjacency matrix W.
 
 2. Train the model
+```
+python train.py --epochs 100 --learning_rate 0.001 --expid 1 --print_every 20
+```
 
+## Testing
 
+1. The pre-trained models could be found in `checkpoints/pretrained_models`
+* Refer to the required folder `JHU or NYT`, `Infected or Deaths` for infected or death cases respectively and our model is in folder `STST`
+
+2. Test the model
+* An example for testing with `COVID_JHU` dataset's daily infected cases with our model `STST` is given here. The `... _best_model.pth` indicates the model with the lowest Mean Absolute Error (MAE) on the validation set. 
+```
+python test.py --checkpoint "checkpoints/pretrained_models/JHU_States_Infected/STST/exp_2_1654.67_best_model.pth"
+```
 
 ## Cite
 Please cite our paper if you find this work useful for your research:
