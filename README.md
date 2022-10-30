@@ -23,7 +23,7 @@ The following steps are required to replicate our work:
 * We divided the entire dataset in chronological order with 80% training, 10% validation and 10% testing.
 * Run the file `generate_training_data.py` to generate the processed files `train.npz, val.npz, test.npz` from X matrix and save the processed files in `data/COVID_JHU/processed` or `data/COVID_NYT/processed`. Use the `confirmed` or `deaths` in the argument to generate infected and death cases processed files respectively.
 ```
-python generate_training_data.py --traffic_df_filename "data/COVID_JHU/covid19_deaths_US_51_states_X_matrix_final.csv" 
+python generate_training_data.py --traffic_df_filename "data/COVID_JHU/covid19_confirmed_US_51_states_X_matrix_final.csv" 
 ```
 
 ## Training
