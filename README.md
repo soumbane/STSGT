@@ -15,9 +15,9 @@ The following steps are required to replicate our work:
 * NYT Dataset - Download [NYT COVID time-series data](https://github.com/nytimes/covid-19-data) (download `us-states.csv` for daily US infected and death cases) and save in `data/COVID_NYT` directory. This project used `Mar 18,2020 - Nov 30,2021` for analysis. 
 
 2. Generate Feature Matrix (X) and Adjacency Matrix (W) from downloaded datasets.
-* JHU Dataset (US) - Inside the folder `data/COVID_JHU`, run the file `Generate_51_states_X_W.ipynb` to generate X and W matrix for 50 states of US and Washington D.C. (51 nodes of graph).
-* JHU Dataset (Michigan) - Inside the folder `data/COVID_JHU`, run the file `Generate_51_states_X_W_Michigan.ipynb` to generate X and W matrix for 83 counties of the state of Michigan (83 nodes of graph).
-* NYT Dataset (US) - Inside the folder `data/COVID_NYT`, run the file `Generate_51_states_X_W_NYT.ipynb` to generate X matrix for 50 states of US and Washington D.C. (51 nodes of graph). We used the same adjacency matrix (W) as generated using JHU dataset.
+* JHU Dataset (US) - Inside the folder `data/COVID_JHU`, run the file `Generate_51_states_X_W.py` to generate X and W matrix for 50 states of US and Washington D.C. (51 nodes of graph).
+* JHU Dataset (Michigan) - Inside the folder `data/COVID_JHU`, run the file `Generate_51_states_X_W_Michigan.py` to generate X and W matrix for 83 counties of the state of Michigan (83 nodes of graph).
+* NYT Dataset (US) - Inside the folder `data/COVID_NYT`, run the file `Generate_51_states_X_W_NYT.py` to generate X matrix for 50 states of US and Washington D.C. (51 nodes of graph). We used the same adjacency matrix (W) as generated using JHU dataset.
 
 3. Generate Train, Validation and Test datasets from the generated X matrix.
 * We divided the entire dataset in chronological order with 80% training, 10% validation and 10% testing.
