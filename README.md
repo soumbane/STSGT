@@ -5,7 +5,6 @@ This is the official PyTorch implementation of the paper "[Spatial–Temporal Sy
 ## Requirements
 * Python >= 3.6
 * PyTorch >= 1.8.0
-* See requirements.txt (All of them are not required)
 
 ## Get Started
 The following steps are required to replicate our work:
