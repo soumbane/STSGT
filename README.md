@@ -1,6 +1,6 @@
 # Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting
 
-This is the official PyTorch implementation of the paper `[Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting](https://www.sciencedirect.com/science/article/pii/S2352648322000824)` that was presented at IEEE/ACM CHASE 2022 conference and published in Elsevier Smart Health Journal (2022).
+This is the official PyTorch implementation of the paper "[Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting](https://www.sciencedirect.com/science/article/pii/S2352648322000824)" that was presented at IEEE/ACM CHASE 2022 conference and published in Elsevier Smart Health Journal (2022).
 
 ## Requirements
 * python >= 3.6
