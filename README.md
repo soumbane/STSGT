@@ -61,16 +61,14 @@ python test.py --checkpoint "checkpoints/pretrained_models/NYT_States_Deaths/STS
 ## Cite
 Please cite our paper if you find this work useful for your research:
 ```
-@article{BANERJEE2022100348,
-title = {Spatial–Temporal Synchronous Graph Transformer network (STSGT) for COVID-19 forecasting},
-journal = {Smart Health},
-volume = {26},
-pages = {100348},
-year = {2022},
-issn = {2352-6483},
-doi = {https://doi.org/10.1016/j.smhl.2022.100348},
-url = {https://www.sciencedirect.com/science/article/pii/S2352648322000824},
-author = {Soumyanil Banerjee and Ming Dong and Weisong Shi}
+@article{banerjee2022spatial,
+  title={Spatial--temporal synchronous graph transformer network (STSGT) for COVID-19 forecasting},
+  author={Banerjee, Soumyanil and Dong, Ming and Shi, Weisong},
+  journal={Smart Health},
+  volume={26},
+  pages={100348},
+  year={2022},
+  publisher={Elsevier}
 }
 ```
 
